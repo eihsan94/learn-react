@@ -1,3 +1,67 @@
+# React Basic 
+- [create the app] [https://reactjs.org/docs/create-a-new-react-app.html#create-react-app]
+
+```
+import React from 'react';
+import Game from './tic-tac-toe/tic-tac-toe'; // import the needed component
+import GreetTitle from './greet-title/greet-title'; // import the needed component
+import './App.css';
+
+
+
+class App extends React.Component {
+  render() {
+    return <div>
+      <GreetTitle  name="sara" age="40"/> // name="sara" age="40" is the input data in react they called it as props
+      <Game /> // the selector of the imported component
+    </div>
+  }
+}
+
+export default App;
+
+```
+
+- advanced use case
+```
+import React from 'react';
+
+class ChangeNameButton extends React.Component { 
+    render () {
+      return <button className="square" onClick={this.props.onClick}> // output declaration
+      change name
+    </button>
+    }
+  }
+  
+  class GreetTitle extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { name: this.props.name}
+    }
+    names = [
+      'ali',
+      'ahmad',
+      'abu',
+      'kasim',
+    ];
+    changeName() {
+      const randomIndex = Math.round(Math.random() * 10);
+      const newName = randomIndex <= this.names.length ? this.names[randomIndex] : this.newName;
+      this.setState(state => ({ name: newName}))
+    }
+    render() {
+      return <div>
+        <h1>hello, {this.state.name}</h1> 
+        <ChangeNameButton 
+          onClick={() => this.changeName()} // output declaration implementation
+        /> 
+      </div>
+    }
+  }
+
+  export default GreetTitle; // exporting the component so that anyone can use it
+```
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
